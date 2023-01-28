@@ -11,11 +11,15 @@ export default function App() {
     setList([...list, { id: list.length, text: item }]);
   }
 
-  // console.log(list)
+  const deleteFromList = (itemId) => {
+    const newList = list.filter(item => item.id !== itemId)
+    setList(newList);
+  }
+
   return (
     <View style={styles.appContainer}>
       <Add addToList={addToList} />
-      <List list={list} />
+      <List list={list} deleteFromList={deleteFromList} />
     </View>
   );
 }

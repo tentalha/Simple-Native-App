@@ -7,13 +7,13 @@ const Add = ({ addToList }) => {
 
     const handleOnPress = () => {
         input && addToList(input);
+        setInput("");
     }
 
     return (
         <View style={styles.inputContainer}>
             <TextInput placeholder='Enter something' style={styles.input}
-                onChangeText={(newText) => setInput(newText)} value={input}
-
+                onChangeText={(newText) => setInput(newText)} defaultValue={input}
             />
             <Button title='Add' style={styles.button} onPress={handleOnPress} disabled={!input} />
         </View>

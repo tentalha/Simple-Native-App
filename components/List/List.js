@@ -1,7 +1,7 @@
 import { FlatList, Text, View } from "react-native";
 import { styles } from "./ListStyles";
 
-const List = ({ list }) => {
+const List = ({ list, deleteFromList }) => {
     return (
         <View style={styles.listContainer}>
             {
@@ -12,8 +12,10 @@ const List = ({ list }) => {
                         <FlatList
                             data={list}
                             renderItem={item => {
-                                console.log(item);
-                                return <Text style={styles.listItem}>{item?.item?.id + 1}.  {item?.item?.text}</Text>
+                                return <Text style={styles.listItem}
+                                    onPress={() => deleteFromList(item?.item?.id)}>
+                                    {item?.item?.id + 1}.  {item?.item?.text}
+                                </Text>
                             }}
                             keyExtractor={item => item?.id}
                         />

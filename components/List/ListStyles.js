@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     },
     listItem: {
         fontSize: 20,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        marginVertical: 5
     }
 })
