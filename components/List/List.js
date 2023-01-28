@@ -11,17 +11,18 @@ const List = ({ list, deleteFromList }) => {
                         <Text Text style={styles.listText}>Here the list goes......</Text>
                         <FlatList
                             data={list}
-                            renderItem={item => {
+                            renderItem={({ item, index }) => {
+                                console.log(index)
                                 return <Text style={styles.listItem}
-                                    onPress={() => deleteFromList(item?.item?.id)}>
-                                    {item?.item?.id + 1}.  {item?.item?.text}
+                                    onPress={() => deleteFromList(item?.id)}>
+                                    {index + 1}.  {item?.text}
                                 </Text>
                             }}
                             keyExtractor={item => item?.id}
                         />
                     </>
                     :
-                    <Text Text style={styles.listText}>Oh Noees ! Nothing to show.</Text>
+                    <Text Text style={styles.listText}>Oh Noes ! Nothing to show.</Text>
             }
         </View >
     )
