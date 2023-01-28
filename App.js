@@ -8,10 +8,10 @@ export default function App() {
   const [list, setList] = useState([]);
 
   const addToList = (item) => {
-    setList([...list, item]);
+    setList([...list, { id: list.length, text: item }]);
   }
 
-  console.log(list)
+  // console.log(list)
   return (
     <View style={styles.appContainer}>
       <Add addToList={addToList} />
